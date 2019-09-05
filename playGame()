@@ -1,0 +1,56 @@
+//Top of script-playGame is the God function that will be called, with a parameter of userChoice
+const playGame = userChoice => {
+    userChoice = userChoice.toLowerCase();
+    if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors' || userChoice === 'bomb') {
+        return userChoice;
+  } else {
+        console.log('Error!');
+  };
+
+  const compChoice = () => {
+      const  randomNum = Math.floor(Math.random() * 3);
+      switch(randomNum) {
+            case 0:
+                  return 'rock';
+            case 1:
+                  return 'paper';
+            case 2:
+                  return 'scissors';
+      }
+  };
+
+  const determineWinner = (userChoice, compChoice) => {
+      if (userChoice === computerChoice) {
+            return 'It is a tie!';
+        }
+        if (userChoice === 'bomb'){
+            return 'Wow, what a win!';
+        }
+        if (userChoice === 'rock'){
+          if (computerChoice === 'paper') {
+            return 'You lose!';
+          } else {
+            return 'You win!';
+          }
+        }
+        if (userChoice === 'paper'){
+          if (computerChoice === 'scissors') {
+            return 'You lose!';
+          } else {
+            return 'You win!';
+          }
+        }
+        if (userChoice === 'scissors'){
+          if (computerChoice === 'rock') {
+            return 'You lose!';
+          } else {
+            return 'You win!';
+          }
+        }
+  };
+  console.log('You threw: ' + userChoice);
+  console.log('The computer threw: ' + computerChoice);
+  
+  console.log(determineWinner(userChoice, computerChoice));
+
+}
